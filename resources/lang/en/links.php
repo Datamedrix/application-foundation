@@ -14,12 +14,10 @@
 declare(strict_types=1);
 
 return [
-    'laravel' => [
-        'documentation' => 'Documentation',
-    ],
-    'datamedrix' => 'Datamedrix GmbH',
-    'forgot_password' => 'Forgot Your Password?',
     'login' => 'Sign in',
     'logout' => 'Sign out',
     'register' => 'Register',
+    'profile' => 'Profile',
+    'about' => 'About',
+    'phpinfo' => 'Server Information',
 ];

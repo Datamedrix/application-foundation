@@ -39,3 +39,13 @@ Route::group([
     }
 );
 
+Route::group([
+    'namespace' => 'DMX\Application\Http\Controllers',
+    'middleware' => ['web', 'auth'],
+    ], function () {
+    // PHP information page
+    Route::get('/phpinfo', 'AboutController@phpinfo')->name('phpinfo');
+
+    }
+);
+

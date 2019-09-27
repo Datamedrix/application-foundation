@@ -14,5 +14,5 @@
 declare(strict_types=1);
 
 return [
-   'maintenance' => 'Application down for maintenance!',
+    'maintenance' => 'Application down for maintenance!',
 ];

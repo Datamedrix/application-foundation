@@ -44,6 +44,11 @@
             <i class="fas fa-ellipsis-v"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownHelp">
+            @can('user.can_view_phpinfo')
+                @if (\Route::has('phpinfo'))
+                    <a class="dropdown-item" href="{{ route('phpinfo') }}">@lang('app::links.phpinfo')</a>
+                @endif
+            @endcan
             @if (\Route::has('about'))
                 <a class="dropdown-item" href="{{ route('about') }}">@lang('app::links.about')</a>
             @endif

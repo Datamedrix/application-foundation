@@ -53,4 +53,52 @@ class AboutController extends AController
 
         return $this->view('about::index', $viewData);
     }
+
+    /**
+     * @return ViewContract
+     */
+    public function phpinfo(): ViewContract
+    {
+        $allowedServerInformation = [
+            'OS',
+            'PROCESSOR_ARCHITECTURE',
+            'PROCESSOR_IDENTIFIER',
+            'PROCESSOR_LEVEL',
+            'PROCESSOR_REVISION',
+            'GATEWAY_INTERFACE',
+            'SERVER_ADDR',
+            'SERVER_NAME',
+            'SERVER_SOFTWARE',
+            'SERVER_PROTOCOL',
+            'SERVER_PORT_SECURE',
+            'SERVER_PORT',
+            'SERVER_ADMIN',
+            'SERVER_SIGNATURE',
+            'HTTPS',
+            'DOCUMENT_ROOT',
+            'HTTP_HOST',
+        ];
+
+        return view(
+            'about::phpinfo',
+            [
+                'phpInfo' => $this->capturePhpInfo(),
+                'serverInfo' => array_intersect_key($_SERVER, array_flip($allowedServerInformation)),
+            ]
+        );
+    }
+
+    /**
+     * @return string
+     */
+    private function capturePhpInfo(): string
+    {
+        ob_start();
+        phpinfo();
+
+        $info = ob_get_contents();
+        ob_end_clean();
+
+        return preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $info);
+    }
 }

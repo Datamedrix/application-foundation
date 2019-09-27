@@ -14,7 +14,7 @@
 declare(strict_types=1);
 
 return [
-    'info' => [
+    'phpinfo' => [
         'title' => 'Server Information',
         'breadcrumb' => 'Server Information',
     ],
