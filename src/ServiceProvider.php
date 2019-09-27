@@ -44,10 +44,15 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         // Define publishes...
         $this->publishes([
-            __DIR__ . '/../resources/views/about' => resource_path('views/vendor/about'),
-            __DIR__ . '/../resources/views/layouts' => resource_path('views/vendor/layouts'),
-            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/app'),
-        ]);
+            __DIR__ . '/../config/app-foundation.php' => $this->app->configPath('app-foundation.php'),
+        ], 'app-config');
+        $this->publishes([
+            __DIR__ . '/../resources/views/about' => $this->app->resourcePath('views/vendor/about'),
+            __DIR__ . '/../resources/views/layouts' => $this->app->resourcePath('views/vendor/layouts'),
+        ], 'app-views');
+        $this->publishes([
+            __DIR__ . '/../resources/lang' => $this->app->resourcePath('lang/vendor/app'),
+        ], 'app-translations');
     }
 
     /**
@@ -57,6 +62,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
+        // Merge default configuration
+        $this->mergeConfigFrom(__DIR__ . '/../config/app-foundation.php', 'app-foundation');
     }
 
     /**
