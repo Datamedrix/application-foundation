@@ -58,6 +58,7 @@
             current: {
                 'route': '{{ $currentRoute['name'] }}',
                 'url': '{{ $currentRoute['url'] }}',
+                'layout': '{{ $layout ?? '' }}',
             },
         };
 
@@ -87,7 +88,9 @@
 <div id="app">
     <!-- HEADER -->
     <header id="app-header">
-        @include('layouts::partials.header')
+        @section('header')
+            @include('layouts::partials.header')
+        @show
     </header>
     <!-- /HEADER -->
 

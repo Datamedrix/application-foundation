@@ -1,4 +1,4 @@
-@extends('layouts::default')
+@extends($layout ?? 'layouts::default')
 
 @section('breadcrumbs')
     <li class="breadcrumb-item active" aria-current="page">@lang('app::pages.about.breadcrumb')</li>
