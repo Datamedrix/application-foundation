@@ -95,13 +95,13 @@
     <!-- /HEADER -->
 
     <!-- MAIN - CONTENT -->
-        <div class="container-fluid content-wrapper">
-            @section('content-wrapper')
+    <div class="container-fluid content-wrapper">
+        @section('content-wrapper')
             <div class="row flex-xl-nowrap">
                 @include('layouts::partials.contentArea')
             </div>
-        </div>
-    @show
+        @show
+    </div>
     <!-- /MAIN - CONTENT -->
 
     <!-- FOOTER -->
