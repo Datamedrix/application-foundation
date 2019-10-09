@@ -1,6 +1,11 @@
 @extends($layout ?? 'layouts::default')
 
 @section('breadcrumbs')
+    @if(\Route::has('home'))
+        <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="fas fa-home"></i></a></li>
+    @else
+        <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+    @endif
     <li class="breadcrumb-item active" aria-current="page">@lang('app::pages.about.breadcrumb')</li>
 @endsection
 
