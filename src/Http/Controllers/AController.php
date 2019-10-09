@@ -23,9 +23,9 @@ abstract class AController extends BaseController
     /**
      * Container for view data.
      *
-     * @var ViewData
+     * @var ViewData|null
      */
-    protected $viewData;
+    private $viewData = null;
 
     /**
      * Namespace where your views are located.
@@ -35,20 +35,35 @@ abstract class AController extends BaseController
     protected $viewNamespace = null;
 
     /**
-     * @var bool
+     * @var bool|null
      */
-    private $isTheDebugBarAvailable = false;
+    private $isTheDebugBarAvailable = null;
 
     /**
-     * Controller constructor.
+     * @return ViewData
      */
-    public function __construct()
+    protected function viewData(): ViewData
     {
-        $this->viewData = new ViewData();
-
-        if (config('app.debug') === true && app()->environment() === 'local') {
-            $this->isTheDebugBarAvailable = app()->has('Barryvdh\Debugbar\LaravelDebugbar');
+        if ($this->viewData === null) {
+            $this->viewData = new ViewData();
         }
+
+        return $this->viewData;
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isTheDebugBarAvailable(): bool
+    {
+        if ($this->isTheDebugBarAvailable === null) {
+            $this->isTheDebugBarAvailable = false;
+            if (config('app.debug') === true && app()->environment() === 'local') {
+                $this->isTheDebugBarAvailable = app()->has('Barryvdh\Debugbar\LaravelDebugbar');
+            }
+        }
+
+        return $this->isTheDebugBarAvailable;
     }
 
     /**
@@ -110,7 +125,7 @@ abstract class AController extends BaseController
     protected function view(?string $viewName = null, array $viewData = []): ViewContract
     {
         $viewData = array_merge([
-                'viewData' => $this->viewData,
+                'viewData' => $this->viewData(),
             ],
             $viewData
         );
@@ -171,7 +186,7 @@ abstract class AController extends BaseController
      */
     protected function debugBar($message, string $label = 'info')
     {
-        if ($this->isTheDebugBarAvailable === true) {
+        if ($this->isTheDebugBarAvailable() === true) {
             try {
                 /** @var \Barryvdh\Debugbar\LaravelDebugbar $debugBar */
                 $debugBar = app(\Barryvdh\Debugbar\LaravelDebugbar::class);
