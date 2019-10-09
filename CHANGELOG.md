@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.2.0](https://github.com/Datamedrix/application-foundation/compare/v0.1.1...v0.2.0) (2019-10-09)
+
+### Features
+
+* **http/controllers:** Create the viewData object and check the debug-bar on demand. ([bcb5d62](https://github.com/Datamedrix/application-foundation/commit/bcb5d62))
+* **resources/views:** Add "home" breadcrumb to all views. ([31e3cbf](https://github.com/Datamedrix/application-foundation/commit/31e3cbf))
+
 ## [0.1.1](https://github.com/Datamedrix/application-foundation/compare/v0.1.0...v0.1.1) (2019-09-27)
 
 ### Bug Fixes
