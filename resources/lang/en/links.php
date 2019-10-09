@@ -17,7 +17,7 @@ return [
     'login' => 'Sign in',
     'logout' => 'Sign out',
     'register' => 'Register',
-    'profile' => 'Profile',
+    'profile' => 'Edit Profile',
     'about' => 'About',
     'phpinfo' => 'Server Information',
 ];
