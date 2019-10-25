@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.3.0](https://github.com/Datamedrix/application-foundation/compare/v0.2.0...v0.3.0) (2019-10-25)
+
+### Features
+
+* **database:** Add lightly adopted migration base class and blueprint class. ([aac53c5](https://github.com/Datamedrix/application-foundation/commit/aac53c5))
+
 # [0.2.0](https://github.com/Datamedrix/application-foundation/compare/v0.1.1...v0.2.0) (2019-10-09)
 
 ### Features
