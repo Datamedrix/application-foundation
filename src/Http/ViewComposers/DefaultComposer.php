@@ -26,7 +26,7 @@ class DefaultComposer
     public function compose(ViewContract $view): ViewContract
     {
         $viewParameters = [
-            'layout' => config('app-foundation.layout', 'layouts::default'),
+            'layout' => $view->getData()['layout'] ?? config('app-foundation.layout', 'layouts::default'),
             'currentRoute' => [
                 'name' => null,
                 'uri' => null,
