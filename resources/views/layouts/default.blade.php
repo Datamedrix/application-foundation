@@ -8,17 +8,8 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <base href="/" target="_self" />
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}"><!-- CSRF Token -->
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    @section('bootstrap-scripts')
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/18492bd25d.js" crossorigin="anonymous"></script>
-    @show
 
     <!-- Styles -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -31,18 +22,25 @@
                 width: 100%;
                 height: 100%;
             }
-
             .content-wrapper {
                 padding-top: 55px;
             }
-
             .content-wrapper #app-content {
                 padding-top: 15px;
             }
         </style>
     @show
+    <!-- \Styles -->
 
     @inject('passportService', 'DMX\\Application\\Services\\PassportService')
+
+    <!-- Scripts -->
+    @section('bootstrap-scripts')
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/18492bd25d.js" crossorigin="anonymous"></script>
+    @show
+    <!-- \Scripts -->
 
     <!-- Global variables -->
     <script>
@@ -82,6 +80,7 @@
 
         @yield('variables')
     </script>
+    <!-- \Global variables -->
 </head>
 <body class="@yield('body-classes', '')">
 <a id="page-top"></a>
@@ -108,7 +107,7 @@
     <footer id="app-footer">
         @yield('footer')
     </footer>
-<!-- /FOOTER -->
+    <!-- /FOOTER -->
 </div>
 
 <!-- Scripts -->
@@ -118,4 +117,5 @@
 @if(config('app.env') === 'local' && config('app.development') === true)
     <script src="http://localhost:35729/livereload.js"></script>
 @endif
+<!-- \Scripts -->
 </body>
