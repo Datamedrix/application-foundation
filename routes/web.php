@@ -29,13 +29,7 @@ Route::group([
         Route::get('/about', 'AboutController@index')->name('about');
 
         // change current locale page
-        Route::get('/locale/{locale}', function (string $locale) {
-            /** @var \DMX\Application\Intl\LocaleManager $localeManager */
-            $localeManager = app(\DMX\Application\Intl\LocaleManager::class);
-            $localeManager->setLocaleAndPutIntoSession($localeManager->createLocale($locale));
-
-            return redirect('/about');
-        });
+        Route::get('/locale/{locale}', 'LocaleController@setLocale')->name('setLocale');
     }
 );
 
@@ -43,9 +37,8 @@ Route::group([
     'namespace' => 'DMX\Application\Http\Controllers',
     'middleware' => ['web', 'auth'],
     ], function () {
-    // PHP information page
-    Route::get('/phpinfo', 'AboutController@phpinfo')->name('phpinfo');
-
+        // PHP information page
+        Route::get('/phpinfo', 'AboutController@phpinfo')->name('phpinfo');
     }
 );
 
