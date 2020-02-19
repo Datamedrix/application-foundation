@@ -43,6 +43,7 @@ class ProfileComposer
     {
         $viewParameters = [
             'isLoggedIn' => false,
+            'userId' => null,
             'userName' => null,
             'userEmail' => null,
         ];
@@ -50,6 +51,7 @@ class ProfileComposer
         if ($this->auth->guard()->check()) {
             $viewParameters = [
                 'isLoggedIn' => true,
+                'userId' => $this->auth->guard()->user()->getAuthIdentifier(),
                 'userName' => $this->auth->guard()->user()->name,
                 'userEmail' => $this->auth->guard()->user()->email,
             ];
