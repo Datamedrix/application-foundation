@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.4.3](https://github.com/Datamedrix/application-foundation/compare/v0.4.2...v0.4.3) (2020-02-27)
+
+### Features
+
+* **views/layouts:** Add environment information to the header. ([2a2d7ab](https://github.com/Datamedrix/application-foundation/commit/2a2d7ab))
+
 # [0.4.2](https://github.com/Datamedrix/application-foundation/compare/v0.4.1...v0.4.2) (2020-02-19)
 
 ### Features
