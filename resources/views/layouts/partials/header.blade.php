@@ -4,6 +4,18 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    @if(app()->environment('local'))
+        <div class="alert alert-info" role="alert">
+            <b>@lang('app::alerts.environment.local')</b>
+        </div>
+    @endif
+
+    @if(app()->environment('staging'))
+        <div class="alert alert-info" role="alert">
+            <b>@lang('app::alerts.environment.staging')</b>
+        </div>
+    @endif
+
     @if(app()->isDownForMaintenance())
         <div class="alert alert-warning" role="alert">
             <b>@lang('app::warnings.maintenance')</b>
